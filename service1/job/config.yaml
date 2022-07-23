@@ -12,7 +12,10 @@ actions:
           - "infracost"
         args:
           - 'breakdown'
-          - '--config'
-          - '/keptn/files/main.tf'
+          - '--path'
+          - '/keptn/files'
           - '--format'
           - 'json'
+        env:
+          - name: infracost-details
+            valueFrom: secret
