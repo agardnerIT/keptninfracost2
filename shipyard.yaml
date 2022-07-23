@@ -6,6 +6,6 @@ spec:
   stages:
     - name: "dev"
       sequences:
-        - name: "delivery"
+        - name: "demosequence"
           tasks:
             - name: "checkcost"
