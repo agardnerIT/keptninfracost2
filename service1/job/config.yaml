@@ -1,10 +1,10 @@
 apiVersion: v2
 actions:
-  - name: "Run alpine image to say hello world"
+  - name: "Run infracost"
     events:
       - name: "sh.keptn.event.checkcost.triggered"
     tasks:
-      - name: "Say Hello World"
+      - name: "Execute infracost"
         workingDir: "/keptn"
         files:
           - /files/plan.json
