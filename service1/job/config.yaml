@@ -7,16 +7,16 @@ actions:
       - name: "Say Hello World"
         workingDir: "/keptn"
         files:
-          - /files
+          - /files/plan.json
         image: "infracost/infracost:ci-0.10.8"
         cmd:
           - "infracost"
         args:
           - 'breakdown'
           - '--path'
-          - '/keptn/files'
+          - '/keptn/files/plan.json'
           - '--format'
-          - 'json'
+          - 'table'
           - '--log-level=debug'
         env:
           - name: infracost-details
