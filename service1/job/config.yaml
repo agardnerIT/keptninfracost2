@@ -14,7 +14,7 @@ actions:
         args:
           - 'breakdown'
           - '--path'
-          - '/keptn/files'
+          - 'files'
           - '--format'
           - 'json'
           - '--log-level=debug'
