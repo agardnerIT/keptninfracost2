@@ -2,7 +2,7 @@ apiVersion: v2
 actions:
   - name: "Run alpine image to say hello world"
     events:
-      - name: "sh.keptn.event.hello-world.triggered"
+      - name: "sh.keptn.event.checkcost.triggered"
     tasks:
       - name: "Say Hello World"
         image: "infracost/infracost:ci-0.10.8"
