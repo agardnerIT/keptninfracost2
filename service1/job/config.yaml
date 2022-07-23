@@ -7,14 +7,14 @@ actions:
       - name: "Say Hello World"
         workingDir: "/keptn"
         files:
-          - files/main.tf
+          - /files
         image: "infracost/infracost:ci-0.10.8"
         cmd:
           - "infracost"
         args:
           - 'breakdown'
           - '--path'
-          - 'files'
+          - '/keptn/files'
           - '--format'
           - 'json'
           - '--log-level=debug'
