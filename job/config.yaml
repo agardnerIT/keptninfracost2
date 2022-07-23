@@ -1,0 +1,16 @@
+apiVersion: v2
+actions:
+  - name: "Run alpine image to say hello world"
+    events:
+      - name: "sh.keptn.event.hello-world.triggered"
+    tasks:
+      - name: "Say Hello World"
+        image: "infracost/infracost:ci-0.10.8"
+        cmd:
+          - "infracost"
+        args:
+          - 'breakdown'
+          - '--config'
+          - '/keptn/files/main.tf'
+          - '--format'
+          - 'json'
