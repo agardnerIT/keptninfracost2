@@ -16,6 +16,7 @@ actions:
           - '/keptn/files'
           - '--format'
           - 'json'
+          - '--log-level=debug'
         env:
           - name: infracost-details
             valueFrom: secret
