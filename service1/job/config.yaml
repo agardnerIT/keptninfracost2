@@ -17,7 +17,6 @@ actions:
           - '/keptn/files/plan.json'
           - '--format'
           - 'table'
-          - '--log-level=debug'
         env:
           - name: infracost-details
             valueFrom: secret
