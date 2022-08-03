@@ -21,7 +21,7 @@ INCLUDED_FIELDS = [
     "diffTotalMonthlyCost"
 ]
 
-plan_file = open("plan.json")
+plan_file = open("/keptn/files/plan.json")
 
 headers = {
     "x-api-key": INFRACOST_API_KEY
