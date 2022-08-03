@@ -3,12 +3,9 @@ import requests
 from prometheus_client import CollectorRegistry, Counter, Gauge, push_to_gateway
 import os
 
-print(os.environ)
-exit()
-
-KEPTN_PROJECT = "keptnProject1"
-KEPTN_SERVICE = "keptnService1"
-KEPTN_STAGE = "keptnStage1"
+KEPTN_PROJECT = os.getenv("KEPTN_PROJECT", "NULL")
+KEPTN_SERVICE = os.getenv("KEPTN_SERVICE, "NULL")
+KEPTN_STAGE = os.getenv("KEPTN_STAGE", "NULL")
 
 PROM_LABELS = [
     "ci_platform",
@@ -17,9 +14,6 @@ PROM_LABELS = [
     "keptn_stage"
 ]
 
-#INFRACOST_API_KEY = "G3ON2C4PP7vrLo4yS6Cj7YEwoNod3iTM"
-print(f"Infracost API Key: {INFRACOST_API_KEY}")
-# exit()
 INCLUDED_FIELDS = [
     "totalHourlyCost",
     "totalMonthlyCost",
@@ -35,13 +29,15 @@ headers = {
 
 payload = {
     "format": "json",
-    "ci-platform": "my-platform"
+    "ci-platform": "keptn"
 }
 
+print("Retrieving Costs from Infracost API")
 api_response = requests.post(url="https://pricing.api.infracost.io/breakdown",
   headers=headers,
   data=payload,
   files={'path': plan_file})
+
 
 print(api_response.status_code)
 print(api_response.text)
@@ -51,9 +47,29 @@ plan_file.close()
 ##########################
 # PUSH METRICS TO PROM   #
 ##########################
-reg = CollectorRegistry()
+print("Pushing Metrics to Prometheus")
 
-g = Gauge(name='dummy_python_metrics', documentation='docs', registry=reg, labelnames=["label1", "label2"])
-g.labels(label1="foo", label2="bar").set(99)
+#reg = CollectorRegistry()
 
-push_to_gateway(gateway='prometheus-pushgateway.monitoring.svc.cluster.local:9091',job='batchA', registry=reg)
+response_json = api_response.json()
+
+#prom_metrics = []
+
+for field in response_json:
+    print(field)
+    if field in INCLUDED_FIELDS:
+      metric_value = response_json['field']
+      print(f"Got value: {metric_value} for metric: {field}")
+      #g = Gauge(name=f"keptn_infracost_{field}", documentation='docs', registry=reg, labelnames=PROM_LABELS)
+      #g.labels(
+      #    ci_platform="keptn",
+      #    keptn_project=KEPTN_PROJECT,
+      #    keptn_service=KEPTN_SERVICE,
+      #    keptn_stage=KEPTN_STAGE,
+      #).set(metric_value)
+      #  prom_metrics.append({
+      #      "key": f"keptn_infracost_{field}",
+      #      "value": response_json[field]
+      #  })
+
+#push_to_gateway(gateway='prometheus-pushgateway.monitoring.svc.cluster.local:9091',job='batchA', registry=reg)
