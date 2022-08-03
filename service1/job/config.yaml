@@ -8,15 +8,10 @@ actions:
         workingDir: "/keptn"
         files:
           - /files/plan.json
-        image: "infracost/infracost:ci-0.10.8"
+          - /files/run_infracost_output_to_prom.sh
+        image: "alpine:3.15.5" # python base with requests module
         cmd:
-          - "infracost"
-        args:
-          - 'breakdown'
-          - '--path'
-          - '/keptn/files/plan.json'
-          - '--format'
-          - 'table'
+          - "./keptn/files/run_infracost_output_to_prom.sh"
         env:
           - name: infracost-details
             valueFrom: secret
