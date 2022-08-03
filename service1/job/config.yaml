@@ -5,7 +5,7 @@ actions:
       - name: "sh.keptn.event.checkcost.triggered"
     tasks:
       - name: "Execute infracost"
-        workingDir: "/keptn"
+        #workingDir: "/keptn"
         files:
           - /files/plan.json
           - /files/run_infracost_output_to_prom.sh
