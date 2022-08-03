@@ -8,12 +8,17 @@ actions:
         #workingDir: "/keptn"
         files:
           - /files/plan.json
-          - /files/run_infracost_output_to_prom.sh
-        image: "curlimages/curl:7.84.0"
-        cmd:
-          - "/bin/sh"
+        #  - /files/run_infracost_output_to_prom.sh
+          - /files/run_infracost_output_to_prom.py
+        #image: "curlimages/curl:7.84.0"
+        image: "gardnera/python:requests_prometheus_client"
+        cmd: "python"
         args:
-          - "/keptn/files/run_infracost_output_to_prom.sh"
+          - "/keptn/files/run_infracost_output_to_prom.py"
+        #cmd:
+        #  - "/bin/sh"
+        #args:
+        #  - "/keptn/files/run_infracost_output_to_prom.sh"
         env:
           - name: infracost-details
             valueFrom: secret
