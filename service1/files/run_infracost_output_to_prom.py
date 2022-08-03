@@ -6,6 +6,7 @@ import os
 KEPTN_PROJECT = os.getenv("KEPTN_PROJECT", "NULL")
 KEPTN_SERVICE = os.getenv("KEPTN_SERVICE", "NULL")
 KEPTN_STAGE = os.getenv("KEPTN_STAGE", "NULL")
+INFRACOST_API_KEY = os.getenv("INFRACOST_API_KEY", "")
 
 PROM_LABELS = [
     "ci_platform",
