@@ -59,7 +59,7 @@ response_json = api_response.json()
 for field in response_json:
     print(field)
     if field in INCLUDED_FIELDS:
-      metric_value = response_json['field']
+      metric_value = response_json[field]
       print(f"Got value: {metric_value} for metric: {field}")
       #g = Gauge(name=f"keptn_infracost_{field}", documentation='docs', registry=reg, labelnames=PROM_LABELS)
       #g.labels(
