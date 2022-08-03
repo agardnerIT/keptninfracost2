@@ -45,32 +45,26 @@ print(api_response.text)
 
 plan_file.close()
 
+response_json = api_response.json()
+
 ##########################
 # PUSH METRICS TO PROM   #
 ##########################
 print("Pushing Metrics to Prometheus")
 
-#reg = CollectorRegistry()
-
-response_json = api_response.json()
-
-#prom_metrics = []
+reg = CollectorRegistry()
 
 for field in response_json:
     print(field)
     if field in INCLUDED_FIELDS:
       metric_value = response_json[field]
       print(f"Got value: {metric_value} for metric: {field}")
-      #g = Gauge(name=f"keptn_infracost_{field}", documentation='docs', registry=reg, labelnames=PROM_LABELS)
-      #g.labels(
-      #    ci_platform="keptn",
-      #    keptn_project=KEPTN_PROJECT,
-      #    keptn_service=KEPTN_SERVICE,
-      #    keptn_stage=KEPTN_STAGE,
-      #).set(metric_value)
-      #  prom_metrics.append({
-      #      "key": f"keptn_infracost_{field}",
-      #      "value": response_json[field]
-      #  })
+      g = Gauge(name=f"keptn_infracost_{field}", documentation='docs', registry=reg, labelnames=PROM_LABELS)
+      g.labels(
+          ci_platform="keptn",
+          keptn_project=KEPTN_PROJECT,
+          keptn_service=KEPTN_SERVICE,
+          keptn_stage=KEPTN_STAGE,
+      ).set(metric_value)
 
-#push_to_gateway(gateway='prometheus-pushgateway.monitoring.svc.cluster.local:9091',job='batchA', registry=reg)
+push_to_gateway(gateway='prometheus-pushgateway.monitoring.svc.cluster.local:9091',job='jes_infracost', registry=reg)
