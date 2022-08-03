@@ -12,7 +12,8 @@ actions:
           - /files/run_infracost_output_to_prom.py
         #image: "curlimages/curl:7.84.0"
         image: "gardnera/python:requests_prometheus_client"
-        cmd: "python"
+        cmd: 
+          - "python"
         args:
           - "/keptn/files/run_infracost_output_to_prom.py"
         #cmd:
