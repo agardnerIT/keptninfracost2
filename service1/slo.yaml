@@ -5,6 +5,9 @@ comparison:
   aggregate_function: avg
 objectives:
   - sli: infracost_total_hourly_cost_diff
+  - sli: infracost_total_monthly_cost_diff
+  - sli: infracost_total_hourly_cost
+  - sli: infracost_total_monthly_cost
 total_score:
   pass: "90%"
   warning: "75%"
