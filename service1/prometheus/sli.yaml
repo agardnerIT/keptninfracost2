@@ -4,4 +4,4 @@ indicators:
   infracost_total_hourly_cost_diff: keptn_infracost_diffTotalHourlyCost{ci_platform="keptn",keptn_project="infracts",keptn_service="service1",keptn_stage="dev"}
   infracost_total_monthly_cost_diff: keptn_infracost_diffTotalMonthlyCost{ci_platform="keptn",keptn_project="infracts",keptn_service="service1",keptn_stage="dev"}
   infracost_total_hourly_cost: keptn_infracost_totalHourlyCost{ci_platform="keptn",keptn_project="infracts",keptn_service="service1",keptn_stage="dev"}
-  infracost_total_monthyl_cost: keptn_infracost_totalMonthlyCost{ci_platform="keptn",keptn_project="infracts",keptn_service="service1",keptn_stage="dev"}
+  infracost_total_monthly_cost: keptn_infracost_totalMonthlyCost{ci_platform="keptn",keptn_project="infracts",keptn_service="service1",keptn_stage="dev"}
