@@ -1,4 +1,0 @@
----
-spec_version: '1.0'
-indicators:
-  infracost_total_hourly_cost_diff: keptn_infracost_diffTotalHourlyCost{ci_platform="keptn",keptn_project="infracts",keptn_service="service1",keptn_stage="dev"}
