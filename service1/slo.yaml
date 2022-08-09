@@ -7,7 +7,20 @@ objectives:
   - sli: infracost_total_hourly_cost_diff
   - sli: infracost_total_monthly_cost_diff
   - sli: infracost_total_hourly_cost
+    pass:
+      - criteria:
+          - "<10"
+    warning:
+      - criteria:
+          - "<=5"
   - sli: infracost_total_monthly_cost
+    pass:
+      - criteria:
+          - "<700"
+          - "<=+10%"
+    warning:
+      - criteria:
+          - "<=695"
 total_score:
   pass: "90%"
   warning: "75%"
