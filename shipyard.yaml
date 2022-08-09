@@ -9,3 +9,6 @@ spec:
         - name: "demosequence"
           tasks:
             - name: "checkcost"
+            - name: "evaluation"
+              properties:
+                timeframe: "5m"
