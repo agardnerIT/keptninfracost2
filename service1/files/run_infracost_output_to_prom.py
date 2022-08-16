@@ -2,6 +2,7 @@ import json
 import requests
 from prometheus_client import CollectorRegistry, Counter, Gauge, push_to_gateway
 import os
+import time
 
 KEPTN_PROJECT = os.getenv("KEPTN_PROJECT", "NULL")
 KEPTN_SERVICE = os.getenv("KEPTN_SERVICE", "NULL")
