@@ -68,3 +68,7 @@ for field in response_json:
       ).set(metric_value)
 
 push_to_gateway(gateway='prometheus-pushgateway.monitoring.svc.cluster.local:9091',job='jes_infracost', registry=reg)
+
+# Give Prometheus time to scrape the push gateway. Sleep for 1 minute
+print("Give enough time to gather metrics. Sleeping for 1min")
+time.sleep(60)
