@@ -27,7 +27,7 @@
             "get_password_data": false,
             "hibernation": null,
             "iam_instance_profile": null,
-            "instance_type": "m5.4xlarge",
+            "instance_type": "m5.8xlarge",
             "launch_template": [],
             "root_block_device": [
               {
@@ -142,7 +142,7 @@
           "get_password_data": false,
           "hibernation": null,
           "iam_instance_profile": null,
-          "instance_type": "m5.4xlarge",
+          "instance_type": "m5.8xlarge",
           "launch_template": [],
           "root_block_device": [
             {
@@ -372,7 +372,7 @@
               }
             ],
             "instance_type": {
-              "constant_value": "m5.4xlarge"
+              "constant_value": "m5.8xlarge"
             },
             "root_block_device": [
               {
