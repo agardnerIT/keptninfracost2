@@ -42,7 +42,7 @@ api_response = requests.post(url="https://pricing.api.infracost.io/breakdown",
 
 
 print(api_response.status_code)
-print(api_response.text)
+#print(api_response.text)
 
 plan_file.close()
 
